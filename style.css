@@ -1,0 +1,801 @@
+
+   
+       /* Estilo de cookies */
+         .cookies-banner {
+              position: fixed;
+              bottom: 0;
+              left: 0;
+                width: 100%;
+                background-color:#333333;
+                color: #ad8282;
+                padding: 15px;
+                text-align: center;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 1000;
+            }
+            .cookies-banner button{
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin: 0 5px;
+                cursor: pointer;
+                border-radius: 5px;
+              
+            }
+            .cookies-banner button:hover {
+                background-color: #45a049;
+            }
+
+
+        /* Variables de colores verdosos eléctricos */
+        :root {
+            --verde-electrico: #00ff41;
+            --verde-electrico-oscuro: #00cc33;
+            --verde-neon: #5bdb44;
+            --verde-lima: #32cd32;
+            --verde-esmeralda: #00ff7f;
+            --verde-acido: #adff2f;
+            --verde-oscuro: #0d5016;
+            --verde-medio: #1a8c29;
+            --fondo-oscuro: #0a1f0d;
+            --fondo-claro: #e8f6ff;
+            --texto-oscuro: #0d3d14;
+            --texto-claro: #ffffff;
+            --sombra-verde: rgba(0, 255, 65, 0.3);
+        }
+
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fondo-claro);
+            color: #f5f7f4;
+            line-height: 1.6;
+        }
+
+        /* Formulario de contacto overlay */
+        .contact-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-modal {
+            background: linear-gradient(135deg, var(--fondo-oscuro), var(--verde-oscuro));
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--verde-electrico);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+ /*  cookies overlay */
+        .cookies-overlay {
+            position: fixed;
+            color: var(--verde-electrico);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .cookies-modal {
+            background: linear-gradient(135deg, var(--fondo-oscuro), var(--verde-oscuro));
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--verde-electrico);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+
+
+
+
+
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--verde-electrico);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--verde-neon);
+            transform: rotate(90deg);
+        }
+
+        .contact-form h2 {
+            color: var(--verde-neon);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px var(--verde-electrico);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--verde-electrico);
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--texto-claro);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--verde-electrico);
+            box-shadow: 0 0 15px var(--sombra-verde);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #ccc;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, var(--verde-electrico), var(--verde-lima));
+            color: var(--fondo-oscuro);
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, var(--verde-neon), var(--verde-esmeralda));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--sombra-verde);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, var(--fondo-oscuro), var(--verde-oscuro));
+            color: var(--texto-claro);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px var(--sombra-verde);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--verde-electrico);
+            text-shadow: 0 0 10px var(--verde-electrico);
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--verde-neon);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--verde-electrico);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 255, 65, 0.2);
+            border: 1px solid var(--verde-electrico);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--sombra-verde);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--texto-claro);
+            margin-bottom: 50px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            color: var(--verde-electrico);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--verde-electrico), var(--verde-lima));
+            color: var(--fondo-oscuro);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px var(--sombra-verde);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, var(--verde-neon), var(--verde-esmeralda));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--sombra-verde);
+        }
+
+        /* Sección de plantas */
+        .section-title {
+            text-align: center;
+            color: var(--texto-oscuro);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--verde-electrico), var(--verde-lima));
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--verde-electrico);
+        }
+
+        .plants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .plant-card {
+            background: var(--texto-claro);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--sombra-verde);
+            border: 2px solid var(--verde-electrico);
+        }
+
+        .plant-img {
+        
+            position: inherit;
+            height: 300px;
+            width: 100%;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .plant-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .plant-card:hover .plant-img img {
+            transform: scale(1.05);
+        }
+
+        .plant-info {
+            padding: 20px;
+        }
+
+        .plant-name {
+            color: var(--verde-oscuro);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plant-name i {
+            color: var(--verde-electrico);
+        }
+
+        .plant-scientific {
+            font-style: italic;
+            color: var(--verde-medio);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .plant-description {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .plant-uses {
+            background: linear-gradient(135deg, var(--fondo-claro), rgba(0, 255, 65, 0.1));
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px solid var(--verde-electrico);
+        }
+
+        .plant-uses h4 {
+            color: var(--verde-oscuro);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plant-uses h4 i {
+            color: var(--verde-electrico);
+        }
+
+        .plant-uses ul {
+            padding-left: 20px;
+        }
+
+        .plant-uses li {
+            margin-bottom: 8px;
+            color: var(--texto-oscuro);
+        }
+
+        .plant-uses a {
+            color: var(--verde-electrico);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .plant-uses a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección de fitoterapia */
+        .fitoterapia {
+            background: linear-gradient(135deg, var(--verde-electrico), var(--verde-lima));
+            padding: 60px 0;
+            margin-bottom: 50px;
+            color: var(--fondo-oscuro);
+        }
+
+        .fitoterapia-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .fitoterapia h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .fitoterapia p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fitoterapia a {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .fitoterapia a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección de beneficios */
+        .benefits {
+            background: linear-gradient(135deg, var(--fondo-oscuro), var(--verde-oscuro));
+            padding: 70px 0;
+            color: var(--texto-claro);
+            margin-bottom: 50px;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: rgba(0, 255, 65, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--sombra-verde);
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--verde-electrico);
+            text-shadow: 0 0 10px var(--verde-electrico);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--verde-neon);
+        }
+
+        /* Formulario de suscripción */
+        .newsletter {
+            background: linear-gradient(135deg, var(--verde-electrico), var(--verde-lima));
+            padding: 70px 0;
+            text-align: center;
+            color: var(--fondo-oscuro);
+            margin-bottom: 50px;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background: var(--fondo-oscuro);
+            color: var(--verde-electrico);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background: var(--verde-oscuro);
+            color: var(--verde-neon);
+            box-shadow: 0 0 20px var(--sombra-verde);
+        }
+
+        /* Pie de página */
+        footer {
+            background: linear-gradient(135deg, var(--fondo-oscuro), var(--verde-oscuro));
+            color: var(--texto-claro);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--verde-electrico);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--verde-electrico);
+            box-shadow: 0 0 10px var(--verde-electrico);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--verde-electrico);
+            text-shadow: 0 0 5px var(--verde-electrico);
+        }
+
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 255, 65, 0.2);
+            border-radius: 50%;
+            color: var(--verde-electrico);
+            transition: all 0.3s ease;
+            border: 1px solid var(--verde-electrico);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--verde-electrico);
+            color: var(--fondo-oscuro);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--sombra-verde);
+        }
+
+        .contact-details {
+            margin-top: 20px;
+        }
+
+        .detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .detail i {
+            color: var(--verde-electrico);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .detail-content h4 {
+            color: var(--verde-neon);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .detail-content p {
+            color: #ccc;
+            margin: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .copyright i {
+            color: var(--verde-electrico);
+        }
+        .cookies a {
+            color: #aaa;
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .politica a:hover {
+            text-decoration: underline;
+            color: var(--verde-electrico);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .subscribe-form input,
+            .subscribe-form button {
+                width: 100%;
+                border-radius: 50px;
+            }
+
+            .plants-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-modal {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .fitoterapia h1 {
+                font-size: 2rem;
+            }
+
+            .fitoterapia p {
+                font-size: 1rem;
+            }
+        }
+   
+
+
+  

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #443030;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgb(241, 96, 234);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        fieldset {
+            border: 2px solid #bd2626;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        legend {
+            font-weight: bold;
+            color: #555;
+            padding: 0 10px;
+        }
+        
+        .registro {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #db2323;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #4c56af;
+            outline: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Información Personal</legend>
+                <h1>Registro de Usuario</h1>
+                
+                <div class="registro">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                </div>
+                
+                <div class="registro">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" required>
+                </div>
+                
+                <div class="registro">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="registro">
+                    <label for="fecha">Fecha de Nacimiento</label>
+                    <input type="date" name="fecha" id="fecha" required>
+                </div>
+                
+                <div class="registro">
+                    <label for="telefono">Marca de Teléfono</label>
+                    <select name="telefono" id="telefono" required>
+                        <option value="">Selecciona una marca</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="xiaomi">Xiaomi</option>
+                        <option value="oppo">Oppo</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Preferencias</legend>
+                
+                <div class="registro">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="opcion1" name="preferencias" value="opcion1">
+                        <label for="opcion1">Recibir notificaciones por email</label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="opcion2" name="preferencias" value="opcion2">
+                        <label for="opcion2">Suscribirse al newsletter</label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="opcion3" name="preferencias" value="opcion3">
+                        <label for="opcion3">Acepto términos y condiciones</label>
+                    </div>
+                </div>
+                
+                <div class="registro">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validación básica
+                const nombre = document.getElementById('nombre').value;
+                const apellido = document.getElementById('apellido').value;
+                const email = document.getElementById('email').value;
+                const fecha = document.getElementById('fecha').value;
+                const telefono = document.getElementById('telefono').value;
+                
+                if (!nombre || !apellido || !email || !fecha || !telefono) {
+                    alert('Por favor, completa todos los campos obligatorios.');
+                    return;
+                }
+                
+                // Validación de email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Por favor, ingresa un email válido.');
+                    return;
+                }
+                
+                alert('Formulario enviado correctamente!');
+                console.log('Datos del formulario:', {
+                    nombre: nombre,
+                    apellido: apellido,
+                    email: email,
+                    fecha: fecha,
+                    telefono: telefono
+                });
+            });
+        });
+    </script>
+</body>
+</html>

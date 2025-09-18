@@ -1,0 +1,10 @@
+body {
+  text-shadow: 2px 4px 4px;(#0f1f1f2)
+    text-align: center;
+  filter: blur(2px); /* Ajusta el valor (ej: 8px) para más/menos blur */
+  justify-content: center;
+  background-color: #eceff1;
+  color: rgb(48, 48, 42);
+  padding: 20px;
+  width: 200px;
+}

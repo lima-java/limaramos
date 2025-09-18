@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Nutrición Aplicada Montse Miguel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --electric-blue: #00F3FF;
+            --neon-pink: #FF00E5;
+            --violet: #A600FF;
+            --acid-green: #ADFF00;
+            --electric-purple: #7D00FF;
+            --dark-bg: #0A0A23;
+            --light-text: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--light-text);
+            background-color: var(--dark-bg);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(167, 0, 255, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 30% 50%, rgba(255, 0, 229, 0.15) 0%, transparent 25%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--electric-blue), 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--electric-purple), var(--violet), var(--neon-pink));
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 229, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 243, 255, 0.2) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        .logo {
+            background: rgba(10, 10, 35, 0.8);
+            border-radius: 50%;
+            padding: 20px;
+            margin-bottom: 2rem;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid var(--electric-blue);
+            box-shadow: 0 0 20px var(--electric-blue), 0 0 40px rgba(0, 243, 255, 0.5);
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px var(--electric-blue), 0 0 40px rgba(0, 243, 255, 0.5); }
+            100% { box-shadow: 0 0 30px var(--electric-blue), 0 0 60px rgba(0, 243, 255, 0.8); }
+        }
+
+        .logo i {
+            font-size: 5rem;
+            color: var(--acid-green);
+            text-shadow: 0 0 10px var(--acid-green);
+        }
+
+        .header-content {
+            background: rgba(10, 10, 35, 0.85);
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 800px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink), inset 0 0 10px rgba(255, 0, 229, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px var(--electric-blue), 0 0 20px rgba(0, 243, 255, 0.5); }
+            100% { text-shadow: 0 0 15px var(--electric-blue), 0 0 30px rgba(0, 243, 255, 0.8), 0 0 40px rgba(0, 243, 255, 0.4); }
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            background: rgba(125, 0, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--electric-blue);
+        }
+
+        .contact-item i {
+            color: var(--acid-green);
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px var(--acid-green);
+        }
+
+        .basic-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .basic-info p {
+            background: rgba(173, 255, 0, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--acid-green);
+        }
+
+        .basic-info i {
+            margin-right: 8px;
+            color: var(--acid-green);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neon-pink), var(--electric-purple));
+            color: var(--light-text);
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px var(--neon-pink);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.4s;
+        }
+
+        .btn:hover::after {
+            left: 140%;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--acid-green));
+            margin: 15px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        .section-content {
+            background: rgba(10, 10, 35, 0.7);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--electric-purple);
+            box-shadow: 0 0 20px rgba(125, 0, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, rgba(125, 0, 255, 0.2), rgba(0, 243, 255, 0.2));
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            border-left: 5px solid var(--acid-green);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        /* Crono Dieta */
+        #crono-dieta {
+            background: linear-gradient(to bottom, var(--dark-bg) 0%, rgba(10, 10, 35, 0.8) 100%), 
+                       radial-gradient(circle at 70% 30%, rgba(167, 0, 255, 0.15) 0%, transparent 30%);
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            flex: 1 1 300px;
+            background: rgba(10, 10, 35, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid var(--electric-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.5);
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            color: var(--acid-green);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px var(--acid-green);
+        }
+
+        .benefit-card h3 {
+            color: var(--electric-blue);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #e0e0ff;
+        }
+
+        /* Retencion Hidrica */
+        #retencion-hidrica {
+            background: linear-gradient(to bottom, rgba(10, 10, 35, 0.8) 0%, var(--dark-bg) 100%), 
+                       radial-gradient(circle at 30% 70%, rgba(255, 0, 229, 0.15) 0%, transparent 30%);
+        }
+
+        #retencion-hidrica .section-content {
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 229, 0.5);
+        }
+
+        #retencion-hidrica .highlight {
+            background: linear-gradient(90deg, rgba(255, 0, 229, 0.2), rgba(173, 255, 0, 0.2));
+            border-left: 5px solid var(--neon-pink);
+        }
+
+        /* Hambre Invierno */
+        #hambre-invierno {
+            background: linear-gradient(to bottom, var(--dark-bg) 0%, rgba(10, 10, 35, 0.8) 100%), 
+                       radial-gradient(circle at 50% 20%, rgba(0, 243, 255, 0.15) 0%, transparent 30%);
+        }
+
+        .factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .factor-card {
+            background: rgba(10, 10, 35, 0.8);
+            border-radius: 15px;
+            padding: 1.8rem;
+            border: 2px solid var(--violet);
+            box-shadow: 0 0 20px rgba(166, 0, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .factor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(166, 0, 255, 0.5);
+        }
+
+        .factor-card h3 {
+            color: var(--acid-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .factor-card h3 i {
+            color: var(--electric-blue);
+            text-shadow: 0 0 5px var(--electric-blue);
+        }
+
+        /* Contact */
+        #contact {
+            background: linear-gradient(135deg, var(--electric-purple), var(--violet));
+            padding: 6rem 0;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        #contact .section-title {
+            color: var(--light-text);
+        }
+
+        #contact .section-title::after {
+            background: linear-gradient(90deg, var(--acid-green), var(--electric-blue));
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .contact-form {
+            background: rgba(10, 10, 35, 0.7);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--electric-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--acid-green);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            font-size: 1rem;
+            border: 1px solid var(--violet);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--acid-green);
+            box-shadow: 0 0 10px var(--acid-green);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(10, 10, 35, 0.7);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 229, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-detail i {
+            font-size: 2.2rem;
+            color: var(--acid-green);
+            min-width: 50px;
+            text-align: center;
+            text-shadow: 0 0 8px var(--acid-green);
+        }
+
+        .contact-detail h3 {
+            color: var(--electric-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .hours {
+            background: rgba(10, 10, 35, 0.7);
+            padding: 1.8rem;
+            border-radius: 15px;
+            border: 2px solid var(--violet);
+            box-shadow: 0 0 15px rgba(166, 0, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .hours h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--acid-green);
+        }
+
+        .hours h3 i {
+            color: var(--acid-green);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--electric-purple), var(--violet));
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(10, 10, 35, 0.7);
+            color: var(--acid-green);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 2px solid var(--electric-blue);
+            box-shadow: 0 0 10px var(--electric-blue);
+            text-shadow: 0 0 5px var(--acid-green);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--acid-green);
+            color: var(--dark-bg);
+            box-shadow: 0 5px 20px var(--acid-green);
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--acid-green);
+            text-shadow: 0 0 15px var(--acid-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+                min-height: auto;
+                padding: 4rem 0;
+            }
+            
+            header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .header-content {
+                padding: 1.8rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            #contact {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            footer {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="logo">
+            <i class="fas fa-apple-alt"></i>
+        </div>
+        <div class="header-content">
+            <h1>Centro de Nutrición Aplicada Montse Miguel</h1>
+            <p>Especialistas en nutrición con enfoque innovador para transformar tu salud</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sant Cugat del Vallès, Spain, 08172</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>636 60 98 53</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>m.cenea@hotmail.com</span>
+                </div>
+            </div>
+            
+            <div class="basic-info">
+                <p><i class="far fa-clock"></i> Siempre abierto</p>
+                <p><i class="far fa-star"></i> Todavía sin calificar (1 opinión)</p>
+            </div>
+            
+            <a href="#contact" class="btn">Contactar ahora</a>
+        </div>
+    </header>
+
+    <!-- Crono Dieta -->
+    <section id="crono-dieta">
+        <div class="container">
+            <div class="section-title">
+                <h2>CRONO DIETA</h2>
+            </div>
+            
+            <div class="section-content">
+                <h3>Qué es la crono dieta? Para qué nos sirve?</h3>
+                <p>La Cronodieta nos ayuda a regular el metabolisme, a cremar millor els greixos per que ens regula la insulina, ayuda a regular les hormones i per tant ens ajuda a regular els cicles menstruals aixi com en la menopausea a disminuir els efectes secundaris.</p>
+                
+                <div class="highlight">
+                    <p>Te en conte els micronutrients i les vitamines, ens ajuda a dormir millor i a regular l'estres...</p>
+                </div>
+                
+                <p>Es el tratamiento por excelencia para disminuir la grasa corporal con resultados visibles y mantenidos a largo plazo.</p>
+                
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Regulación Metabólica</h3>
+                        <p>Mejora la función metabólica y la quema de grasas</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Equilibrio Hormonal</h3>
+                        <p>Regula las hormonas y ciclos menstruales</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>Calidad del Sueño</h3>
+                        <p>Ayuda a dormir mejor y reducir el estrés</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#contact" class="btn">Ven a probarlo en Nuestro Centro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retención Hídrica -->
+    <section id="retencion-hidrica">
+        <div class="container">
+            <div class="section-title">
+                <h2>RETENCIÓN HÍDRICA...LA DIETA</h2>
+            </div>
+            
+            <div class="section-content">
+                <p>Para estos días de confinamiento en casa...a ver quien se atreve!!💪💪 Sobre todo los que ya os habeis empezado a engordar...si teneis dudas consultarme 💚</p>
+                
+                <div class="highlight">
+                    <p>No dejes que el confinamiento afecte tu salud. Te ofrecemos planes personalizados para mantenerte en forma incluso en casa.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#contact" class="btn">Consultar sobre dieta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hambre en Invierno -->
+    <section id="hambre-invierno">
+        <div class="container">
+            <div class="section-title">
+                <h2>POR QUÉ TENEMOS MÁS HAMBRE EN INVIERNO</h2>
+            </div>
+            
+            <div class="section-content">
+                <p>La nostalgia, las bajas temperaturas y hasta nuestra historia genética hacen que en invierno tengamos una mayor necesidad de consumir alimentos, tenemos más hambre, y si no tenemos cuidado puede haber una ganancia de peso.</p>
+                
+                <p>Así como en temporada de verano la temperatura corporal aumenta, en la invernal el frío provoca que baje la temperatura del cuerpo, y para recuperarla nuestro organismo nos pide más calorías con antojos de alimentos dulces y con grasa.</p>
+                
+                <p>Basta con que el cuerpo esté dos o tres grados por debajo de lo que normalmente se encuentra, para que el antojo aparezca, aun cuando en un país con altos índices de sobrepeso y obesidad la mayoría de las personas tienen suficientes reservas para hacer frente a esta condición.</p>
+                
+                <h3>Factores que provocan este aumento del apetito</h3>
+                
+                <div class="factors">
+                    <div class="factor-card">
+                        <h3><i class="fas fa-temperature-low"></i> Bajas Temperaturas</h3>
+                        <p>El frío provoca que baje la temperatura del cuerpo, y para recuperarla nuestro organismo nos pide más calorías.</p>
+                    </div>
+                    <div class="factor-card">
+                        <h3><i class="fas fa-sun"></i> Falta de Luz Solar</h3>
+                        <p>La disminución de horas de sol afecta nuestros neurotransmisores y hormonas, aumentando la ansiedad por alimentos dulces y grasos.</p>
+                    </div>
+                    <div class="factor-card">
+                        <h3><i class="fas fa-dna"></i> Factores Genéticos</h3>
+                        <p>Nuestra historia genética nos predispone a almacenar más energía durante los meses fríos.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <h3>Soluciones y Suplementos</h3>
+                    <p>Hay métodos y suplementos nutricionales que nos ayudan a "engañar" a nuestro cuerpo y nuestro cerebro. Sustancias que activan nuestra química y nuestros neurotransmisores para reducir la ansiedad por estos alimentos, como por ejemplo la Garcinia Cambodgia, el picolinato de cromo, las cetonas de frambuesa, o el triptófano.</p>
+                    <p>El experto es siempre el que debe decidir qué se puede tomar según el caso.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#contact" class="btn">Consulta con nuestra especialista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONTACTO</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Dirección</h3>
+                            <p>Sant Cugat del Vallès, Spain, 08172</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>636 60 98 53</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>m.cenea@hotmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hours">
+                        <h3><i class="far fa-clock"></i> Horario</h3>
+                        <p>Siempre abierto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-apple-alt"></i>
+            </div>
+            <p>Centro de Nutrición Aplicada Montse Miguel &copy; 2023</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p>Todavía sin calificar (1 opinión)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                this.reset();
+            });
+        }
+        
+        // Add subtle animations to cards when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe all benefit and factor cards
+        document.querySelectorAll('.benefit-card, .factor-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

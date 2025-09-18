@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dni.css">
+    <script> src="dni.js"</script>
+    <title>Formulario de Registro</title>
+
+
+
+
+
+</head>
+       <body>
+        
+        <form id="registroForm" class="form-container" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre">
+                <div class="error-message" id="nombre-error">El nombre es obligatorio</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="apellido">Apellido*</label>
+                <input type="text" name="surname" id="apellido" placeholder="Tu apellido">
+                <div class="error-message" id="apellido-error">El apellido es obligatorio</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" name="mail" id="email" placeholder="tu@email.com">
+                <div class="error-message" id="email-error">Ingresa un email válido</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono">Marca de teléfono*</label>
+                <select name="telefonos" id="telefono">
+                    <option value="">Selecciona una marca</option>
+                    <option value="iphone">iPhone</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="xiaomi">Xiaomi</option>
+                    <option value="oppo">Oppo</option>
+                </select>
+                <div class="error-message" id="telefono-error">Selecciona una marca</div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Registrarse</button>
+            
+            <div class="success-message" id="success-message">
+                ¡Registro exitoso! Tus datos han sido enviados.
+            </div>
+        </form>
+   
+    </body>
+</html>
